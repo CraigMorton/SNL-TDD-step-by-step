@@ -31,4 +31,11 @@ class BoardSpec < MiniTest::Test
 		board = Board.new(10, {})
 	end
 
+	def test_modifier_config_hash_sets_tile_values
+		tile = 1
+		config = {tile => -1}
+		board = Board.new(10, config)
+		assert_equal(-1, board.tiles[tile])
+	end
+
 end
