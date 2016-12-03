@@ -21,4 +21,10 @@ class BoardSpec < MiniTest::Test
 		assert_equal(64, @board.tiles.size)
 	end
 
+	def test_tiles_array_default_value_is_0
+		each_tile_zero = @board.tiles.map {|tile| tile == 0}
+		all_tiles_zero = each_tile_zero.reduce {|prev, curr| prev && curr}
+		assert_equal(true, all_tiles_zero)
+	end
+
 end
