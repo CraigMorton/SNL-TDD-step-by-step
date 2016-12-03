@@ -4,8 +4,12 @@ require_relative("../board.rb")
 
 class BoardSpec < MiniTest::Test
 
-	def test_can_create_board
-		board = Board.new()
+	def setup
+		@board = Board.new()
 	end
-	
+
+	def test_has_tiles_array
+		assert_equal(Array, @board.tiles.class)
+	end
+
 end
