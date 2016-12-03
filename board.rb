@@ -1,11 +1,9 @@
 class Board
 
+	attr_reader :tiles
+
 	def initialize(board_size)
-
-	end
-
-	def tiles
-		return Array.new(50)
+		@tiles = Array.new(board_size.to_i)
 	end
 
 end

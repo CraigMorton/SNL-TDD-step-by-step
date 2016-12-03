@@ -17,4 +17,8 @@ class BoardSpec < MiniTest::Test
 		assert_equal(50, board.tiles.size)
 	end
 
+	def test_constructor_sets_tiles_array_size_to_64
+		assert_equal(64, @board.tiles.size)
+	end
+
 end
