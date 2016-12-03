@@ -5,7 +5,7 @@ require_relative("../board.rb")
 class BoardSpec < MiniTest::Test
 
 	def setup
-		@board = Board.new(64)
+		@board = Board.new(64, {})
 	end
 
 	def test_has_tiles_array
@@ -13,7 +13,7 @@ class BoardSpec < MiniTest::Test
 	end
 
 	def test_constructor_sets_tiles_array_size_to_50
-		board = Board.new(50)
+		board = Board.new(50, {})
 		assert_equal(50, board.tiles.size)
 	end
 
@@ -25,6 +25,10 @@ class BoardSpec < MiniTest::Test
 		each_tile_zero = @board.tiles.map {|tile| tile == 0}
 		all_tiles_zero = each_tile_zero.reduce {|prev, curr| prev && curr}
 		assert_equal(true, all_tiles_zero)
+	end
+
+	def test_initialize_takes_modifier_config_hash
+		board = Board.new(10, {})
 	end
 
 end
