@@ -30,4 +30,10 @@ class PlayerListSpec < MiniTest::Test
 		assert_equal(7, @list.players[@player])
 	end
 
+	def test_can_update_position_twice
+		@list.update_position(@player, 7)
+		@list.update_position(@player, 3)
+		assert_equal(10, @list.players[@player])
+	end
+
 end

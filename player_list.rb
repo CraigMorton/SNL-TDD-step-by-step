@@ -13,7 +13,7 @@ class PlayerList
 	end
 
 	def update_position(player, tiles)
-		@players[player] = 7
+		@players[player] += tiles
 	end
 
 end
