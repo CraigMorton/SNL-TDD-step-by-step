@@ -25,4 +25,9 @@ class PlayerListSpec < MiniTest::Test
 		assert_equal(0, @list.players[@player])
 	end
 
+	def test_can_update_player_position
+		@list.update_position(@player, 7)
+		assert_equal(7, @list.players[@player])
+	end
+
 end

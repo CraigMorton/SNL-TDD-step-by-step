@@ -12,4 +12,8 @@ class PlayerList
 		@players[player] = 0
 	end
 
+	def update_position(player, tiles)
+		@players[player] = 7
+	end
+
 end
