@@ -6,4 +6,8 @@ class Game
 		@player_list = player_list
 	end
 
+	def board
+		Board.new(0, {})
+	end
+
 end
