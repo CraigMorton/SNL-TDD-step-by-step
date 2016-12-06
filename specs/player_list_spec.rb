@@ -36,4 +36,10 @@ class PlayerListSpec < MiniTest::Test
 		assert_equal(10, @list.players[@player])
 	end
 
+	def test_can_update_negative_position
+		@list.update_position(@player, 5)
+		@list.update_position(@player, -3)
+		assert_equal(2, @list.players[@player])
+	end
+
 end
