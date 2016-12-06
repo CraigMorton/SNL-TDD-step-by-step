@@ -8,10 +8,11 @@ require_relative("../board.rb")
 class GameSpec < MiniTest::Test
 
 	def setup
+		@board = Board.new(10, {})
 		@list = PlayerList.new
 		@list.add(Player.new("Craig"))
 		@list.add(Player.new("Morton"))
-		@game = Game.new(@list)
+		@game = Game.new(@board, @list)
 	end
 
 	def test_has_player_list
@@ -24,6 +25,10 @@ class GameSpec < MiniTest::Test
 
 	def test_has_board
 		assert_equal(Board, @game.board.class)
+	end
+
+	def test_board_passed_to_initialize
+		assert_equal(@board, @game.board)
 	end
 
 end

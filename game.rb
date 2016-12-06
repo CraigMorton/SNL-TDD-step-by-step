@@ -1,13 +1,10 @@
 class Game
 
-	attr_reader :player_list
+	attr_reader :player_list, :board
 
-	def initialize(player_list)
+	def initialize(board, player_list)
+		@board = board
 		@player_list = player_list
-	end
-
-	def board
-		Board.new(0, {})
 	end
 
 end
