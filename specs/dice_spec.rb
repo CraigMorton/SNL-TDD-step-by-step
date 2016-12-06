@@ -4,8 +4,12 @@ require_relative("../dice.rb")
 
 class DiceSpec < MiniTest::Test
 
-	def test_can_initialize
-		Dice.new
+	def setup
+		@dice = Dice.new
+	end
+
+	def test_can_roll
+		assert_equal(Fixnum, @dice.roll.class)
 	end
 
 end
