@@ -1,15 +1,15 @@
 class PlayerList
 
 	def initialize
-		@players = []
+		@players = {}
 	end
 
 	def players
-		return Array.new(@players)
+		return @players.clone
 	end
 
 	def add(player)
-		@players.push(player)
+		@players[player] = 0
 	end
 
 end
