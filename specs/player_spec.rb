@@ -17,5 +17,10 @@ class PlayerSpec < MiniTest::Test
 		assert_equal("John", player.name)
 	end
 
+	def test_name_cant_be_modified_from_outside_class
+		@player.name[0] = "!!!"
+		assert_equal("Craig", @player.name)
+	end
+
 
 end
