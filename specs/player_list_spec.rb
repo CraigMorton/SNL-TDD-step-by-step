@@ -42,4 +42,9 @@ class PlayerListSpec < MiniTest::Test
 		assert_equal(2, @list.players[@player])
 	end
 
+	def test_can_add_multiple_players
+		@list.add_many([Player.new("Jim"), Player.new("Bob")])
+		assert_equal(3, @list.players.size)
+	end
+
 end
