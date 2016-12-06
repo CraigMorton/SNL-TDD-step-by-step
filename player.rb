@@ -8,4 +8,8 @@ class Player
 		return String.new(@name)
 	end
 
+	def roll(dice)
+		dice.roll
+	end
+
 end

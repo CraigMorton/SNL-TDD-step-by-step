@@ -1,6 +1,7 @@
 require("minitest/autorun")
 require("minitest/rg")
 require_relative("../player.rb")
+require_relative("../dice.rb")
 
 class PlayerSpec < MiniTest::Test
 
@@ -20,6 +21,11 @@ class PlayerSpec < MiniTest::Test
 	def test_name_cant_be_modified_from_outside_class
 		@player.name[0] = "!!!"
 		assert_equal("Craig", @player.name)
+	end
+
+	def test_can_roll_dice
+		dice = Dice.new(6)
+		@player.roll(dice)
 	end
 
 
