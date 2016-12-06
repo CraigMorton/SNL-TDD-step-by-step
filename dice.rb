@@ -5,7 +5,7 @@ class Dice
 	end
 
 	def roll
-		6
+		Random.new.rand(1..@sides)
 	end
 
 end
