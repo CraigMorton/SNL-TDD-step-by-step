@@ -7,6 +7,7 @@ class PlayerListSpec < MiniTest::Test
 
 	def setup
 		@list = PlayerList.new()
+		@player = Player.new("Craig")
 	end
 
 	def test_has_array_of_players
@@ -14,9 +15,14 @@ class PlayerListSpec < MiniTest::Test
 	end
 
 	def test_can_add_players
-		player = Player.new("Craig")
-		@list.add(player)
-		assert_equal(player, @list.players.first)
+		@list.add(@player)
+		assert_equal(@player, @list.players.first)
+	end
+
+	def test_players_list_cannot_be_modified_outside_class
+		@list.add(@player)
+		@list.players[0] = 6
+		assert_equal(@player, @list.players.first)
 	end
 
 end

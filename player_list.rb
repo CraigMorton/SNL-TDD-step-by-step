@@ -5,7 +5,7 @@ class PlayerList
 	end
 
 	def players
-		return @players
+		return Array.new(@players)
 	end
 
 	def add(player)
