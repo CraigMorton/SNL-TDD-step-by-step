@@ -5,7 +5,7 @@ class Turn
   end
 
   def order
-    @order
+    Array.new(@order)
   end
 
   def add(player)
