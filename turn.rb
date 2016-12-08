@@ -12,4 +12,8 @@ class Turn
     @order.push(player)
   end
 
+  def current
+    @order.first
+  end
+
 end

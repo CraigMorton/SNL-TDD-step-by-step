@@ -28,11 +28,22 @@ class TurnSpec < MiniTest::Test
   end
 
   def test_can_add_multiple_players
+    add_three_players
+    assert_equal(3, @turn.order.size)
+    assert_equal(@player3, @turn.order[2])
+  end
+
+  def test_can_check_current_player
+    add_three_players
+    assert_equal(@player, @turn.current)
+  end
+
+  private
+
+  def add_three_players
     @turn.add(@player)
     @turn.add(@player2)
     @turn.add(@player3)
-    assert_equal(3, @turn.order.size)
-    assert_equal(@player3, @turn.order[2])
   end
 
 end
