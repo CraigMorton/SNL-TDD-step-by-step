@@ -47,4 +47,8 @@ class PlayerListSpec < MiniTest::Test
 		assert_equal(3, @list.players.size)
 	end
 
+	def test_can_check_position_of_player
+		assert_equal(0, @list.position(@player))
+	end
+
 end

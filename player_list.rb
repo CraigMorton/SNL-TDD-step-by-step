@@ -22,4 +22,8 @@ class PlayerList
 		@players[player] += tiles
 	end
 
+	def position(player)
+		@players[player]
+	end
+
 end
