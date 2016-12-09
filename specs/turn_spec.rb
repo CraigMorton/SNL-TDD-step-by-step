@@ -38,6 +38,12 @@ class TurnSpec < MiniTest::Test
     assert_equal(@player, @turn.current)
   end
 
+  def test_can_move_to_next_player
+    add_three_players
+    @turn.next
+    assert_equal(@player2, @turn.current)
+  end
+
   private
 
   def add_three_players

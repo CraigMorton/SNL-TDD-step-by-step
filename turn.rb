@@ -16,4 +16,8 @@ class Turn
     @order.first
   end
 
+  def next
+    @order.rotate!
+  end
+
 end
