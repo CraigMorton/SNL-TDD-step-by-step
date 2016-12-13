@@ -1,6 +1,6 @@
 class Movement
 
-	def initialize(board, player_list)
+	def initialize(board, player_list, turn_order)
 		
 	end
 
