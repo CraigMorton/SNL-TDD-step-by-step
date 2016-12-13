@@ -14,16 +14,21 @@ class MovementSpec < MiniTest::Test
 		@list = PlayerList.new
 		@turn = Turn.new
 		@movement = Movement.new(@board, @list, @turn)
+		@player = Player.new("Craig")
+		@list.add(@player)
+		@turn.add(@player)
 	end
 
 	def test_manages_player_roll
-		player = Player.new("Craig")
-		@list.add(player)
-		@turn.add(player)
+		move_one_tile
+		assert_equal(1, @list.position(@player))
+	end
 
+	private
+
+	def move_one_tile
 		roll_one = Dice.new(1)
 		@movement.roll(roll_one)
-		assert_equal(1, @list.position(player))
 	end
 
 end
