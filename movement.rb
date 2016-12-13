@@ -1,4 +1,4 @@
-class Modifier
+class Movement
 
 	def initialize(board, player_list)
 		
