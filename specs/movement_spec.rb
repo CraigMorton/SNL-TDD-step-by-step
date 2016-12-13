@@ -24,6 +24,15 @@ class MovementSpec < MiniTest::Test
 		assert_equal(1, @list.position(@player))
 	end
 
+	def test_manages_applying_tile_modifier
+		ladder_board = Board.new(5, {1 => +2})
+		ladder_movement = Movement.new(ladder_board, @list, @turn)
+		move_one_tile
+
+		ladder_movement.apply_modifier
+		assert_equal(3, @list.position(@player))
+	end
+
 	private
 
 	def move_one_tile
