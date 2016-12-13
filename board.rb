@@ -9,4 +9,8 @@ class Board
 		end
 	end
 
+	def modifier(position)
+		return @tiles[position]
+	end
+
 end

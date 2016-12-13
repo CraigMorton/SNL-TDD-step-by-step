@@ -38,4 +38,13 @@ class BoardSpec < MiniTest::Test
 		assert_equal(-1, board.tiles[tile])
 	end
 
+	def test_can_get_modifer_without_exposing_tiles_array
+		tile = 1
+		config = {tile => -1}
+		board = Board.new(10, config)
+
+		modifier = board.modifier(1)
+		assert_equal(-1, modifier)
+	end
+
 end
