@@ -18,4 +18,9 @@ class Movement
 		@player_list.update_position(player, modifier)
 	end
 
+	def take_turn(dice)
+		roll(dice)
+		apply_modifier
+	end
+
 end

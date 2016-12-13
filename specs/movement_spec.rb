@@ -25,11 +25,16 @@ class MovementSpec < MiniTest::Test
 	end
 
 	def test_manages_applying_tile_modifier
-		ladder_board = Board.new(5, {1 => +2})
-		ladder_movement = Movement.new(ladder_board, @list, @turn)
+		ladder_movement = get_ladder_movement
 		move_one_tile
 
 		ladder_movement.apply_modifier
+		assert_equal(3, @list.position(@player))
+	end
+
+	def test_move_and_apply_modifier_in_take_turn_method
+		movement = get_ladder_movement
+		movement.take_turn(Dice.new(1))
 		assert_equal(3, @list.position(@player))
 	end
 
@@ -38,6 +43,11 @@ class MovementSpec < MiniTest::Test
 	def move_one_tile
 		roll_one = Dice.new(1)
 		@movement.roll(roll_one)
+	end
+
+	def get_ladder_movement
+		ladder_board = Board.new(5, {1 => +2})
+		ladder_movement = Movement.new(ladder_board, @list, @turn)
 	end
 
 end
