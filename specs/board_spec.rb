@@ -47,4 +47,9 @@ class BoardSpec < MiniTest::Test
 		assert_equal(-1, modifier)
 	end
 
+	def test_tiles_array_cannot_be_modified_outside_class
+		@board.tiles[0] = "!!!"
+		assert_equal(0, @board.tiles[0])
+	end
+
 end
