@@ -4,6 +4,7 @@ require_relative("../game.rb")
 require_relative("../player_list.rb")
 require_relative("../player.rb")
 require_relative("../board.rb")
+require_relative("../dice.rb")
 
 class GameSpec < MiniTest::Test
 
@@ -12,7 +13,9 @@ class GameSpec < MiniTest::Test
 		@list = PlayerList.new
 		@list.add(Player.new("Craig"))
 		@list.add(Player.new("Morton"))
-		@game = Game.new(@board, @list)
+		dice = Dice.new(1)
+		@turn = Turn.new()
+		@game = Game.new(dice, @board, @list)
 	end
 
 	def test_has_player_list
@@ -29,6 +32,11 @@ class GameSpec < MiniTest::Test
 
 	def test_board_passed_to_initialize
 		assert_equal(@board, @game.board)
+	end
+
+	def test_can_play_turn
+		@game.play_turn
+		assert_equal(1, @game.player_list.position)
 	end
 
 end
