@@ -18,7 +18,7 @@ class PlayerListSpec < MiniTest::Test
 
 	def test_players_list_cannot_be_modified_outside_class
 		@list.players["!!!"] = 6
-		assert_equal(nil, @list.players["!!!"])
+		assert_nil(@list.players["!!!"])
 	end
 
 	def test_list_stores_players_position
