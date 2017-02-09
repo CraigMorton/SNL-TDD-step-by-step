@@ -5,6 +5,7 @@ require_relative("../player_list.rb")
 require_relative("../player.rb")
 require_relative("../board.rb")
 require_relative("../dice.rb")
+require_relative("../turn.rb")
 
 class GameSpec < MiniTest::Test
 
