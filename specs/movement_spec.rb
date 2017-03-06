@@ -15,8 +15,11 @@ class MovementSpec < MiniTest::Test
 		@turn = Turn.new
 		@movement = Movement.new(@board, @list, @turn)
 		@player = Player.new("Craig")
+		@player2 = Player.new("Morton")
 		@list.add(@player)
 		@turn.add(@player)
+		@list.add(@player2)
+		@turn.add(@player2)
 	end
 
 	def test_manages_player_roll
@@ -36,6 +39,11 @@ class MovementSpec < MiniTest::Test
 		movement = get_ladder_movement
 		movement.take_turn(Dice.new(1))
 		assert_equal(3, @list.position(@player))
+	end
+
+	def test_take_turn_updates_turn_order
+		@movement.take_turn(Dice.new(1))
+		assert_equal(@player2, @movement.turn_order.current)
 	end
 
 	private

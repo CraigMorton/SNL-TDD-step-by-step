@@ -1,10 +1,18 @@
 class Game
 
-	attr_reader :player_list, :board
+	attr_reader :movement
 
-	def initialize(dice, board, player_list)
-		@board = board
-		@player_list = player_list
+	def initialize(dice, movement, players)
+    @dice = dice
+    @movement = movement
+    players.each do |player|
+      @movement.player_list.add(player)
+      @movement.turn_order.add(player)
+    end
 	end
+
+  def play_turn
+    @movement.take_turn(@dice)
+  end
 
 end

@@ -1,5 +1,7 @@
 class Movement
 
+	attr_reader :player_list, :turn_order, :board
+
 	def initialize(board, player_list, turn_order)
 		@board = board
 		@player_list = player_list
@@ -21,6 +23,7 @@ class Movement
 	def take_turn(dice)
 		roll(dice)
 		apply_modifier
+		@turn_order.next
 	end
 
 end
